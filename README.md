@@ -2,6 +2,8 @@
   <img src="images/icon.svg" width="120" alt="MediaPlayer Logo" />
   <h1>MediaPlayer 智能电视流媒体中心</h1>
   <p><b>专为 Android TV 与机顶盒打造的专业级私有化 IPTV 客户端</b></p>
+  
+  [![Docker Pulls](https://img.shields.io/docker/pulls/laoknas/mediaplayer.svg)](https://hub.docker.com/r/laoknas/mediaplayer)
 </div>
 
 ---
@@ -42,20 +44,48 @@ MediaPlayer 并不是一个普通的本地播放器，而是一套**「服务端
 > 本项目分为**服务端（Backend）**和**客户端（Android App）**两部分。服务端提供核心的流代理、设备管控与后台面板，客户端则安装在电视或机顶盒上提供播放界面。
 
 ### 1. 服务端部署
-通过公开提供的 Docker 镜像，只需一行命令即可在任何 Linux/NAS 环境中快速拉起服务端：
+
+推荐使用 **Docker Compose** 进行部署，它能更方便地管理数据卷和环境变量，与仓库中提供的 `docker-compose.yml` 完美契合。
+
+#### 方法一：使用 Docker Compose（推荐）
+
+1. 在服务器上创建一个工作目录，例如 `mediaplayer`。
+2. 将本仓库中的 `docker-compose.yml` 文件下载或复制到该目录中。
+3. 在该目录下运行以下命令启动服务：
+
+```bash
+docker-compose up -d
+```
+
+**目录挂载说明**：
+- `./data`：数据存储目录（包含数据库、缓存等）
+- `./downloads`：客户端 APK 下载存放目录
+- `./library`：程序相关依赖或扩展库目录
+
+#### 方法二：使用 Docker CLI 命令
+
+如果您更喜欢使用纯命令行，可以直接运行以下命令（包含了最新的挂载路径与镜像名）：
+
 ```bash
 docker run -d \
-  -p 9527:9527 \
-  -v /path/to/your/data:/app/data \
   --name mediaplayer-server \
-  ghcr.io/kuai410022283/mediaplayer:latest
+  --restart always \
+  -p 9527:9527 \
+  -v $(pwd)/data:/app/data \
+  -v $(pwd)/downloads:/app/web/download \
+  -v $(pwd)/library:/app/library \
+  laoknas/mediaplayer:latest
 ```
-*(部署完成后，即可通过浏览器访问 Web 管理后台，上传您的 M3U 文件并管理设备。)*
+
+*(部署完成后，即可通过浏览器访问 `http://<您的IP>:9527` 进入 Web 管理后台，上传您的 M3U 文件并管理设备。)*
 
 ### 2. 客户端安装
+
 请前往本仓库的 **[Releases 页面](https://github.com/kuai410022283/mediaplayer/releases)** 下载最新版本的 `mediaplayer-x.x.x-release.apk`。
+
 - 将 APK 放入 U盘插入电视进行安装，或者通过当贝市场等第三方工具推送到电视端。
-- 打开 App 后，系统会自动生成设备唯一识别码，将其提供给服务端管理员进行授权即可开启观影之旅。
+- 打开 App 后，系统会自动生成设备唯一识别码。
+- 将该识别码提供给服务端管理员，在 Web 后台进行“一键授权”后，即可开启观影之旅。
 
 ---
 
@@ -80,7 +110,6 @@ docker run -d \
 | **线路切换** | 手动选择直播源 | `长按` (Long Press) | `长按 OK 键` |
 
 ---
-
 
 <p align="center">
   <i>—— “让海量订阅源的聚合管理与播放前所未有的流畅与安全” ——</i>

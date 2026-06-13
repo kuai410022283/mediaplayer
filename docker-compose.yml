@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  mediaplayer-server:
+    image: laoknas/mediaplayer:latest
+    container_name: mediaplayer-server
+    restart: always
+    ports:
+      - "9527:9527"
+    volumes:
+      # 数据存储目录（包含数据库、缓存等）
+      - ./data:/app/data
+      # 客户端 APK 下载存放目录
+      - ./downloads:/app/web/download
+      # 程序目录
+      - ./library:/app/library
