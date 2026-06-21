@@ -14,6 +14,14 @@ MediaPlayer 并不是一个普通的本地播放器，而是一套**「服务端
 
 ---
 
+## 截图
+
+![mediaplayer](images/home01.png)
+![mediaplayer](images/player02.png)
+![mediaplayer](images/home02.png)
+
+---
+
 ## ✨ 核心产品特色
 
 ### 🛡️ 1. 极致的安全防御（防盗链）
@@ -96,6 +104,12 @@ sudo chmod 0755 mediaplayer
   <i>—— “让海量订阅源的聚合管理与播放前所未有的流畅与安全” ——</i>
 </p>
 
+## 联系与支持
+
+- QQ群：864744268
+- Email：kuai410022283@qq.com
+- 捐赠 如果觉得项目对你有用，可以捐赠任意资金，捐赠的资金，会用来维护项目及开发成本。
+- ![支付宝](images/image.png)
 
 ## LICENSE
 请遵守[LICENSE](LICENSE)，不得用于任何商业用途。
