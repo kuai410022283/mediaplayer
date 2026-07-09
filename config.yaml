@@ -1,0 +1,38 @@
+# MediaPlayer v1.1.4配置文件
+# ⚠️ 部署前必须修改 auth.secret 和 auth.admin_password
+
+server:
+  host: "127.0.0.1"
+  port: 9527
+
+database:
+  path: "./data/mediaplayer.db"
+
+stream:
+  cache_dir: "./data/cache"
+  max_concurrent: 1000       # 最大并发流数，建议外网访问部署请把这个改成 50
+  buffer_size: 8192       # 流缓冲区大小 (bytes)，建议外网访问部署请把这个改成 4096
+
+auth:
+  # ⚠️ 必须修改！使用随机生成的长字符串
+  # 生成方法: openssl rand -hex 32
+  secret: "mediaplayer-change-this-secret-key"
+  expire_hours: 720        # JWT Token 有效期 (小时)
+  # ⚠️ 必须修改！设置强密码
+  admin_password: "admin123"
+
+cors:
+  # 允许的来源域名列表
+  # 生产环境应限制为你的实际域名，例如:
+  # allowed_origins:
+  #   - "https://admin.example.com"
+  #   - "http://localhost:3000"
+  allowed_origins:
+    - "*"
+
+# IP 级请求频率限制 (次/分钟/IP)
+# 建议外网访问部署请把这个改成 300/600/60
+rate_limit:
+  api: 1000          # 通用 API（频道列表、分组、管理等）
+  logo: 1000         # 台标接口（Coil 加载台标）
+  stream: 2000        # 流代理接口（播放换台）
