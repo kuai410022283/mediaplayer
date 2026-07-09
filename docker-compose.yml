@@ -5,6 +5,10 @@ services:
     image: laoknas/mediaplayer:latest
     container_name: mediaplayer-server
     restart: always
+    # 如果想实现rtp、rtsp、组播等功能需要使用 host 网络模式，并把ports端口映射删掉，并且服务器和客户端在同一个局域网内
+    # network_mode: "host"
+    environment:
+      - TZ=Asia/Shanghai
     ports:
       - "9527:9527"
     volumes:
@@ -12,5 +16,7 @@ services:
       - ./data:/app/data
       # 客户端 APK 下载存放目录
       - ./downloads:/app/web/download
-      # 程序目录
+      # 频道logo目录
       - ./library:/app/library
+      # 配置文件（可自行修改IP和端口，需确保容器内的路径正确，通常是运行目录下的 config.yaml）
+      # - ./config.yaml:/app/config.yaml
