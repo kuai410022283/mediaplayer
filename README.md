@@ -120,6 +120,8 @@ sudo chmod 0755 mediaplayer
 - QQ群：864744268
 - Email：kuai410022283@qq.com
 - **捐赠**：如果觉得项目对你有用，可以捐赠任意资金，捐赠的资金会用来维护项目及开发成本。
+- ![TG群组](images/Image_1783606468118_170.png)
+- ![QQ群组](images/qrcode_1783607163827.jpg)
 - ![支付宝](images/image.png)
 
 ## LICENSE
