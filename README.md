@@ -78,10 +78,46 @@ sudo chmod 0755 mediaplayer
 ./mediaplayer
 ```
 
+#### 📦 服务端支持架构一览
+
+请根据您的设备架构，从 [Releases 页面](https://github.com/kuai410022283/mediaplayer/releases) 下载对应的二进制包 。
+
+**二进制包（tar.gz）**
+
+| 架构 | 文件名 | 适用设备 | 部署方式 |
+|------|--------|---------|---------|
+| x86-64 | `mediaplayer-linux-amd64.tar.gz` | 软路由（N100/J4125）、NAS、VPS、PVE虚拟机 | 二进制 |
+| ARM64 | `mediaplayer-linux-arm64.tar.gz` | 晶晨 S905/S922X、树莓派4+、NAS、瑞芯微 RK3588 | 二进制 |
+| ARMv7l | `mediaplayer-linux-arm-armv7l.tar.gz` | 树莓派2/3、晶晨旧款 S805、老款 NAS | 二进制 |
+| 龙芯 LoongArch | `mediaplayer-linux-loong64.tar.gz` | 龙芯 3A5000 / 3A6000 及以上 | 二进制 |
+| RISC-V 64 | `mediaplayer-linux-riscv64.tar.gz` | VisionFive 2、Milk-V Pioneer 等新兴平台 | 二进制 |
+| macOS (Intel) | `mediaplayer-darwin-amd64.tar.gz` | Intel Mac | 二进制 |
+| macOS (Apple) | `mediaplayer-darwin-arm64.tar.gz` | Apple Silicon Mac（M1/M2/M3） | 二进制 |
+| Windows | `mediaplayer-windows-amd64.zip` | Windows PC | 二进制 |
+
+**Docker 多架构镜像**（同一镜像标签，按宿主机自动匹配）
+
+| 平台 | 适用设备 |
+|------|---------|
+| `linux/amd64` | 软路由、NAS、VPS |
+| `linux/arm64` | 晶晨 S905/S922X、树莓派4+、NAS |
+| `linux/arm/v7` | 树莓派2/3、ARMv7 设备 |
+
+> **💡 不确定自己的架构？** 在设备 SSH 终端运行 `uname -m` 查看：
+> - `x86_64` → 下载 `amd64`
+> - `aarch64` / `arm64` → 下载 `arm64`
+> - `armv7l` → 下载 `arm-armv7l`
+> - `loongarch64` → 下载 `loong64`
+> - `riscv64` → 下载 `riscv64`
+
+
+
 ### 2. 客户端安装
+
 请前往本仓库的 **[Releases 页面](https://github.com/kuai410022283/mediaplayer/releases)** 下载最新版本的 `mediaplayer-x.x.x-release.apk`。
 - 将 APK 放入 U盘插入电视进行安装，或者通过当贝市场等第三方工具推送到电视端。
 - 打开 App 后，系统会自动生成设备唯一识别码，将其提供给服务端管理员进行授权即可开启观影之旅。
+
 
 ---
 
