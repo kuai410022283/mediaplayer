@@ -153,7 +153,7 @@ sudo chmod 0755 mediaplayer
 ## 联系与支持
 
 - QQ群1：292437580
-- QQ群2：864744268
+- QQ群2：864744268（已满）
 - Telegram：[@mediaplayer_chat](https://t.me/+3qS4i6yrHsc2MWNl)
 - Email：kuai410022283@qq.com
 - **捐赠**：如果觉得项目对你有用，可以捐赠任意资金，捐赠的资金会用来维护项目及开发成本。
