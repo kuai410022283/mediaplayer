@@ -70,9 +70,12 @@ docker run -d \
 *(部署完成后，即可通过浏览器访问 Web 管理后台，上传您的 M3U 文件并管理设备。)*
 
 #### 方法二：[飞牛OS应用](https://github.com/Brian099/fn_fpk_packages/blob/main/README.md)
-下载获取mediaplayer.fpk最新客户端，按照说明进行安装
+下载获取mediaplayer.fpk最新服务端，按照说明进行安装
 
-#### 方法三：手动命令安装
+#### 方法三：[群晖套件](https://github.com/kuai410022283/syno-mediaplayer)
+下载获取mediaplayer.spk最新服务端，按照说明进行安装
+
+#### 方法四：手动命令安装
 ```bash
 sudo chmod 0755 mediaplayer
 ./mediaplayer
