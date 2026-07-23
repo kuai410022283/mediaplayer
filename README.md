@@ -83,7 +83,7 @@ sudo chmod 0755 mediaplayer
 
 #### 📦 服务端支持架构一览
 
-请根据您的设备架构，从 [Releases 页面](https://github.com/kuai410022283/mediaplayer/releases) 下载对应的二进制包 。
+请根据您的设备架构，从 [Releases 页面](https://github.com/kuai410022283/mediaplayer/releases) 下载对应的二进制包。
 
 **二进制包（tar.gz）**
 
