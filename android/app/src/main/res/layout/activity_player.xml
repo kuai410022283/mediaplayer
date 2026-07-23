@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 电视家风格：全屏播放 + 覆盖层频道信息 -->
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000"
+    android:fitsSystemWindows="false">
+
+    <!-- 播放器 -->
+    <FrameLayout
+        android:id="@+id/videoLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="false" />
+
+    <!-- 缓冲指示器 -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="@dimen/dp_48"
+        android:layout_height="@dimen/dp_48"
+        android:layout_gravity="center"
+        android:indeterminateTint="@color/accent"
+        android:visibility="gone" />
+
+    <!-- 频道信息覆盖层（左上角） -->
+    <LinearLayout
+        android:id="@+id/layoutChannelInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|start"
+        android:layout_margin="@dimen/dp_24"
+        android:orientation="vertical"
+        android:background="@drawable/bg_channel_info"
+        android:padding="@dimen/dp_16"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tvChannelName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFF"
+                android:textSize="@dimen/sp_22"
+                android:textStyle="bold"
+                android:maxWidth="@dimen/dp_400"
+                android:singleLine="true"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="1"
+                android:focusable="true"
+                android:focusableInTouchMode="true" />
+
+            <TextView
+                android:id="@+id/tvStreamType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/accent"
+                android:textSize="@dimen/sp_12"
+                android:background="@drawable/bg_badge"
+                android:paddingHorizontal="@dimen/dp_8"
+                android:paddingVertical="@dimen/dp_2"
+                android:layout_marginStart="@dimen/dp_10" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/dp_8"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tvStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#aaa"
+                android:textSize="@dimen/sp_13" />
+
+            <TextView
+                android:id="@+id/tvResolution"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#888"
+                android:textSize="@dimen/sp_12"
+                android:layout_marginStart="@dimen/dp_12" />
+        </LinearLayout>
+
+        <!-- EPG 节目信息 -->
+        <LinearLayout
+            android:id="@+id/layoutEpg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/dp_10"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tvEpgNow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ccc"
+                android:textSize="@dimen/sp_12"
+                android:maxWidth="@dimen/dp_400"
+                android:singleLine="true"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="1"
+                android:focusable="true"
+                android:focusableInTouchMode="true" />
+
+            <TextView
+                android:id="@+id/tvEpgNext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#888"
+                android:textSize="@dimen/sp_11"
+                android:layout_marginTop="@dimen/dp_2"
+                android:maxWidth="@dimen/dp_400"
+                android:singleLine="true"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="1"
+                android:focusable="true"
+                android:focusableInTouchMode="true" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 操作提示（底部） -->
+    <LinearLayout
+        android:id="@+id/layoutRemoteHint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="@dimen/dp_20"
+        android:orientation="horizontal"
+        android:alpha="0.5">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="◀ ▶ 换台  |  确认 信息  |  返回 退出"
+            android:textColor="#aaa"
+            android:textSize="@dimen/sp_12" />
+    </LinearLayout>
+
+    <!-- 手势提示浮层 (首次使用时显示) -->
+    <LinearLayout
+        android:id="@+id/layoutGestureHint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/bg_channel_info"
+        android:padding="@dimen/dp_24"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="操作说明"
+            android:textColor="@color/accent"
+            android:textSize="@dimen/sp_16"
+            android:textStyle="bold"
+            android:layout_marginBottom="@dimen/dp_12" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="👆 单击：显示/隐藏信息\n✌️ 双击：播放/暂停\n👈👉 左右滑动：切换频道\n👆👇 上下滑动：音量/亮度\n⏳ 长按：倍速播放"
+            android:textColor="#ddd"
+            android:textSize="@dimen/sp_13"
+            android:lineSpacingExtra="@dimen/dp_6" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="点击任意位置关闭"
+            android:textColor="#888"
+            android:textSize="@dimen/sp_11"
+            android:layout_marginTop="@dimen/dp_12" />
+    </LinearLayout>
+
+    <!-- 音量指示器（右边缘） -->
+    <LinearLayout
+        android:id="@+id/layoutVolumeIndicator"
+        android:layout_width="@dimen/dp_40"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|end"
+        android:layout_marginEnd="@dimen/dp_16"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:id="@+id/progressVolume"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="@dimen/dp_6"
+            android:layout_height="@dimen/dp_120"
+            android:max="100"
+            android:progress="50"
+            android:progressTint="@color/accent"
+            android:progressBackgroundTint="#333"
+            android:rotation="270" />
+
+        <TextView
+            android:id="@+id/tvVolume"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#aaa"
+            android:textSize="@dimen/sp_11"
+            android:layout_marginTop="@dimen/dp_4" />
+    </LinearLayout>
+
+    <!-- 亮度指示器（左边缘） -->
+    <LinearLayout
+        android:id="@+id/layoutBrightnessIndicator"
+        android:layout_width="@dimen/dp_40"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|start"
+        android:layout_marginStart="@dimen/dp_16"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:id="@+id/progressBrightness"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="@dimen/dp_6"
+            android:layout_height="@dimen/dp_120"
+            android:max="100"
+            android:progress="50"
+            android:progressTint="@color/warn"
+            android:progressBackgroundTint="#333"
+            android:rotation="270" />
+
+        <TextView
+            android:id="@+id/tvBrightness"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#aaa"
+            android:textSize="@dimen/sp_11"
+            android:layout_marginTop="@dimen/dp_4"
+            android:text="☀" />
+    </LinearLayout>
+
+    <!-- 倍速指示器 -->
+    <TextView
+        android:id="@+id/tvSpeedIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:layout_margin="@dimen/dp_16"
+        android:textColor="@color/accent"
+        android:textSize="@dimen/sp_14"
+        android:textStyle="bold"
+        android:background="@drawable/bg_channel_info"
+        android:paddingHorizontal="@dimen/dp_12"
+        android:paddingVertical="@dimen/dp_6"
+        android:visibility="gone" />
+
+</FrameLayout>

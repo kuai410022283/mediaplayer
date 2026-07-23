@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 电视家风格频道列表项 -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_80"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingHorizontal="@dimen/dp_16"
+    android:background="@drawable/selector_channel_item"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <!-- 正在播放指示器 -->
+    <View
+        android:id="@+id/viewPlaying"
+        android:layout_width="@dimen/dp_3"
+        android:layout_height="@dimen/dp_32"
+        android:background="@color/accent"
+        android:visibility="gone" />
+
+    <!-- 序号 -->
+    <TextView
+        android:id="@+id/tvChannelIndex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="@dimen/dp_64"
+        android:layout_marginStart="@dimen/dp_8"
+        android:layout_marginEnd="@dimen/dp_12"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/sp_18"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:fontFamily="monospace"
+        tools:text="001" />
+
+    <!-- Logo -->
+    <ImageView
+        android:id="@+id/ivChannelLogo"
+        android:layout_width="@dimen/dp_64"
+        android:layout_height="@dimen/dp_48"
+        android:scaleType="fitCenter"
+        android:layout_marginEnd="@dimen/dp_10"
+        android:visibility="gone" />
+
+    <!-- 频道名称 + 类型 -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvChannelName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/sp_22"
+            android:textStyle="bold"
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:scrollHorizontally="true"
+            tools:text="CCTV-1 综合" />
+
+        <TextView
+            android:id="@+id/tvCurrentEpg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/sp_16"
+            android:layout_marginTop="@dimen/dp_4"
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:scrollHorizontally="true"
+            tools:text="精彩节目" />
+
+        <ProgressBar
+            android:id="@+id/progressEpgItem"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_3"
+            android:layout_marginTop="@dimen/dp_6"
+            android:layout_marginEnd="@dimen/dp_8"
+            android:progressTint="@color/accent"
+            android:progressBackgroundTint="#33FFFFFF"
+            android:visibility="gone"
+            tools:progress="60"
+            tools:visibility="visible" />
+    </LinearLayout>
+
+    <!-- 类型角标 (替代原来的红点) -->
+    <TextView
+        android:id="@+id/tvStreamTypeBadge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_8"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/sp_14"
+        android:background="@drawable/bg_badge"
+        android:paddingHorizontal="@dimen/dp_4"
+        android:paddingVertical="1dp"
+        android:visibility="gone"
+        tools:text="HLS"
+        tools:visibility="visible" />
+
+    <!-- 收藏图标 -->
+    <ImageView
+        android:id="@+id/ivFavorite"
+        android:layout_width="@dimen/dp_24"
+        android:layout_height="@dimen/dp_24"
+        android:src="@drawable/ic_star"
+        android:visibility="gone" />
+
+</LinearLayout>

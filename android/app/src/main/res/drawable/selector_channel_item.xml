@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_focused="true" android:drawable="@drawable/bg_channel_focused" />
+    <item android:state_pressed="true" android:drawable="@drawable/bg_channel_pressed" />
+    <item android:state_activated="true">
+        <shape>
+            <solid android:color="#1AFFFFFF" />
+            <corners android:radius="@dimen/dp_4" />
+        </shape>
+    </item>
+    <item android:drawable="@android:color/transparent" />
+</selector>

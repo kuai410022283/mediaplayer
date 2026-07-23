@@ -2,6 +2,9 @@
   <img src="images/icon.svg" width="120" alt="MediaPlayer Logo" />
   <h1>MediaPlayer 智能电视流媒体中心</h1>
   <p><b>专为 Android TV 与机顶盒打造的专业级私有化 IPTV 客户端</b></p>
+  <p>
+    <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg" alt="License: Apache 2.0" /></a>
+  </p>
 </div>
 
 ---

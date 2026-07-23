@@ -1,0 +1,32 @@
+pluginManagement {
+    repositories {
+        if (System.getenv("GITHUB_ACTIONS") != "true") {
+            maven { url 'https://maven.aliyun.com/repository/public' }
+            maven { url 'https://maven.aliyun.com/repository/google' }
+            maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+        } else {
+            // GitHub Actions 节点会被阿里云拦截导致全盘下载失败，所以云端环境改用华为云镜像兜底 IJKPlayer
+            maven { url 'https://repo.huaweicloud.com/repository/maven/' }
+        }
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        if (System.getenv("GITHUB_ACTIONS") != "true") {
+            maven { url 'https://maven.aliyun.com/repository/public' }
+            maven { url 'https://maven.aliyun.com/repository/google' }
+        } else {
+            maven { url 'https://repo.huaweicloud.com/repository/maven/' }
+        }
+        google()
+        mavenCentral()
+        jcenter() // 官方 JCenter 兜底
+    }
+}
+
+rootProject.name = "MediaPlayer"
+include ':app'

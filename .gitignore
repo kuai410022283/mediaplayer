@@ -1,0 +1,23 @@
+# Node & General
+node_modules/
+*.log
+
+# OS & IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Build artifacts
+dist/
+build/
+*.apk
+*.zip
+*.tar.gz
+
+# Environment & Credentials
+.env
+.env.local
+local.properties
+*.jks
+*.keystore

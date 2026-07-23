@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingVertical="@dimen/dp_16"
+    android:paddingHorizontal="@dimen/dp_16"
+    android:focusable="true"
+    android:background="@drawable/selector_channel_item">
+
+    <TextView
+        android:id="@+id/tvEpgTime"
+        android:layout_width="@dimen/dp_75"
+        android:layout_height="wrap_content"
+        android:text="19:00"
+        android:textColor="#FFFFFF"
+        android:textSize="@dimen/sp_20"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvEpgTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="新闻联播"
+        android:textColor="#DDDDDD"
+        android:textSize="@dimen/sp_20"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:scrollHorizontally="true"
+        android:singleLine="true" />
+        
+    <ImageView
+        android:id="@+id/ivCatchup"
+        android:layout_width="@dimen/dp_24"
+        android:layout_height="@dimen/dp_24"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="@dimen/dp_8"
+        android:src="@drawable/ic_replay"
+        android:visibility="gone" />
+        
+</LinearLayout>

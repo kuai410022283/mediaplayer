@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <!-- 代表 context.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS) -->
+    <external-files-path name="downloads" path="Download/" />
+    <!-- 代表 /storage/emulated/0/Download (如果直接下载到公共目录) -->
+    <external-path name="external_downloads" path="Download/" />
+</paths>

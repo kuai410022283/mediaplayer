@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Add padding to prevent the squircle from being cropped by the system's circular splash screen mask -->
+    <item
+        android:drawable="@drawable/ic_launcher"
+        android:bottom="32dp"
+        android:left="32dp"
+        android:right="32dp"
+        android:top="32dp" />
+</layer-list>

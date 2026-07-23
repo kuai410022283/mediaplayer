@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MediaPlayer</string>
+    <string name="settings">设置</string>
+    <string name="server_url">服务器地址</string>
+    <string name="save">保存</string>
+    <string name="cancel">取消</string>
+    <string name="loading">加载中...</string>
+    <string name="error">错误</string>
+    <string name="no_channels">暂无频道</string>
+    <string name="all_groups">全部</string>
+    <string name="favorites">收藏</string>
+    <string name="recent">最近</string>
+</resources>

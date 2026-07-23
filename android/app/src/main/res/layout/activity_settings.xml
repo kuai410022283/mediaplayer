@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/bg_main"
+    android:padding="@dimen/dp_48">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="设置"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/sp_24"
+        android:textStyle="bold"
+        android:layout_marginBottom="@dimen/dp_32" />
+
+    <LinearLayout
+        android:layout_width="@dimen/dp_400"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="服务器地址"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/sp_12"
+            android:textAllCaps="true"
+            android:letterSpacing="0.1"
+            android:layout_marginBottom="@dimen/dp_8" />
+
+        <EditText
+            android:id="@+id/etServerUrl"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_48"
+            android:background="@color/bg_card"
+            android:textColor="@color/text_primary"
+            android:hint="http://192.168.1.100:9527"
+            android:textColorHint="@color/text_secondary"
+            android:paddingHorizontal="@dimen/dp_16"
+            android:inputType="textUri"
+            android:singleLine="true"
+            android:layout_marginBottom="@dimen/dp_24" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="网络缓存时长 (毫秒)"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/sp_12"
+            android:textAllCaps="true"
+            android:letterSpacing="0.1"
+            android:layout_marginBottom="@dimen/dp_8" />
+
+        <EditText
+            android:id="@+id/etNetworkCache"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_48"
+            android:background="@color/bg_card"
+            android:textColor="@color/text_primary"
+            android:hint="1500"
+            android:textColorHint="@color/text_secondary"
+            android:paddingHorizontal="@dimen/dp_16"
+            android:inputType="number"
+            android:singleLine="true"
+            android:layout_marginBottom="@dimen/dp_24" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end">
+
+            <Button
+                android:id="@+id/btnCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_44"
+                android:text="取消"
+                android:textColor="@color/text_secondary"
+                android:background="@android:color/transparent"
+                android:layout_marginEnd="@dimen/dp_12" />
+
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="@dimen/dp_120"
+                android:layout_height="@dimen/dp_44"
+                android:text="保存"
+                android:textColor="@color/bg_main"
+                android:background="@color/accent" />
+        </LinearLayout>
+
+        <!-- 分隔线 -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/divider"
+            android:layout_marginVertical="@dimen/dp_24" />
+
+        <!-- 关于信息 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/bg_card"
+            android:padding="@dimen/dp_16">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="@dimen/dp_8">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="应用版本"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="@dimen/sp_13" />
+                <TextView
+                    android:id="@+id/tvAppVersion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/sp_13" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="@dimen/dp_8">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="设备ID"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="@dimen/sp_13" />
+                <TextView
+                    android:id="@+id/tvDeviceId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/sp_12"
+                    android:fontFamily="monospace" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="授权状态"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="@dimen/sp_13" />
+                <TextView
+                    android:id="@+id/tvAuthStatusInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/accent"
+                    android:textSize="@dimen/sp_13" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
