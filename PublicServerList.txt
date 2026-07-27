@@ -1,0 +1,3 @@
+测试服务器1,http://nas.laokhome.cn:9530
+测试服务器2,http://nas.laokhome.cn:9530
+测试服务器3,http://nas.laokhome.cn:9530
