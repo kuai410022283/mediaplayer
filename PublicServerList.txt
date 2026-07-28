@@ -1,2 +1,2 @@
-测试1,http://nas.laokhome.cn:9530
+测试1,http://nas.laokhome.cn:9588
 
