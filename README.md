@@ -23,6 +23,8 @@ MediaPlayer 并不是一个普通的本地播放器，而是一套**「服务端
 ![mediaplayer](images/home01.png)
 ![mediaplayer](images/player02.png)
 ![mediaplayer](images/home02.png)
+![远程配置](images/远程配置.png)
+![客户端定制](images/客户端定制.png)
 
 ---
 
@@ -55,7 +57,7 @@ MediaPlayer 并不是一个普通的本地播放器，而是一套**「服务端
 - **服务端一键拉取**：管理后台深度集成了 GitHub Releases，可自动检测最新版本，并一键下载最新版 APK 到服务端。
 - **客户端平滑升级**：电视端每次启动时自动与服务端校验版本。当有新版时，直接从私有服务端高速下载更新并弹出安装提示，从此告别 U盘繁琐拷贝升级。
 
-#### 🔐 6. VIP 授权订阅
+#### 🔐 6. 捐赠vip授权订阅
 - **硬件指纹绑定**：授权码与服务器硬件唯一绑定，防止未授权部署。
 - **远程激活**：在管理后台「全局设置 → VIP 授权订阅」中输入授权码即可激活，激活后解锁远程配置等高级功能。
 - **自动续期检测**：服务端启动时自动校验授权状态，过期或机器码不匹配时自动失效。
@@ -171,7 +173,7 @@ sudo chmod 0755 mediaplayer
 
 ### 联系与支持
 
-- QQ群1：292437580
+- QQ Group : [292437580](https://qm.qq.com/q/L2eqy7gkoM)
 - Telegram：[@mediaplayer_chat](https://t.me/+3qS4i6yrHsc2MWNl)
 - Email：kuai410022283@qq.com
 - **捐赠**：如果觉得项目对你有用，可以捐赠任意资金，捐赠的资金会用来维护项目及开发成本。
@@ -330,7 +332,7 @@ The client is fully compatible with both **TV remote controls** (key navigation)
 
 ### Contact & Support
 
-- QQ Group 1: 292437580
+- QQ Group : [292437580](https://qm.qq.com/q/L2eqy7gkoM)
 - Telegram: [@mediaplayer_chat](https://t.me/+3qS4i6yrHsc2MWNl)
 - Email: kuai410022283@qq.com
 - **Donation**: If this project is helpful to you, donations to cover maintenance and server costs are highly appreciated.
