@@ -94,10 +94,12 @@ docker run -d \
 
 > **🔧 自定义密钥**：如需自定义授权加密密钥，编译时设置环境变量 `LICENSE_SECRET=你的密钥种子`。服务端和 `license-gen.exe` 须使用相同的密钥种子。
 
-##### 方法二：[飞牛OS应用](https://github.com/Brian099/fn_fpk_packages/blob/main/README.md)
+##### 方法二：[飞牛OS应用](https://github.com/kuai410022283/fnos-mediaplayer)
+- 安装时请注意：安装程序目录权限，需要可读写
 下载获取mediaplayer.fpk最新服务端，按照说明进行安装
 
 ##### 方法三：[群晖套件](https://github.com/kuai410022283/syno-mediaplayer)
+- 安装时请注意：安装程序目录权限，需要可读写
 下载获取mediaplayer.spk最新服务端，按照说明进行安装
 
 ##### 方法四：手动命令安装
