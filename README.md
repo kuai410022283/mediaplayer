@@ -57,18 +57,18 @@ MediaPlayer 并不是一个普通的本地播放器，而是一套**「服务端
 - **服务端一键拉取**：管理后台深度集成了 GitHub Releases，可自动检测最新版本，并一键下载最新版 APK 到服务端。
 - **客户端平滑升级**：电视端每次启动时自动与服务端校验版本。当有新版时，直接从私有服务端高速下载更新并弹出安装提示，从此告别 U盘繁琐拷贝升级。
 
-#### 🔐 6. 捐赠vip授权订阅
+#### 🔐 6. 捐赠功能
 - **硬件指纹绑定**：授权码与服务器硬件唯一绑定，防止未授权部署。
-- **远程激活**：在管理后台「全局设置 → VIP 授权订阅」中输入授权码即可激活，激活后解锁远程配置等高级功能。
+- **远程激活**：在管理后台「全局设置 → 捐赠解锁」中输入授权码即可激活，激活后解锁远程配置等高级功能。
 - **自动续期检测**：服务端启动时自动校验授权状态，过期或机器码不匹配时自动失效。
 
-#### ⚙️ 7. 远程配置 [vip订阅]
+#### ⚙️ 7. 远程配置 [捐赠]
 - **全局配置下发**：在管理后台「全局设置」中统一配置所有客户端의 播放器参数（解码模式、画面比例、缓存策略、DNS 策略等）。
 - **设备级配置覆盖**：支持对单个设备进行独立配置，覆盖全局设置。
 - **界面管控**：支持远程隐藏客户端面板（设置栏、频道列表、EPG 节目单、OSD 信息栏），隐藏后客户端操作时提示"管理员已禁用此功能"。
 - **配置项隐藏**：支持将特定设置项在客户端 UI 中隐藏，防止用户自行修改关键参数。
 
-#### 8. 客户端定制 [vip订阅] 
+#### 8. 客户端定制 [捐赠] 
 - **自定义修改应用名称**：支持在客户端设置中自定义应用名称，方便识别和管理。
 - **自定义修改应用图标**：支持在客户端设置中自定义应用图标，提升用户体验。
 - **自定义修改服务端地址**：支持在客户端设置中自定义服务端地址，方便在不同网络环境下使用。
@@ -183,6 +183,14 @@ sudo chmod 0755 mediaplayer
 
 ### LICENSE
 请遵守 [LICENSE](LICENSE)，不得用于任何商业用途。
+
+### 免责声明与合规提示 (Disclaimer & Compliance)
+1. **中立播放工具**：本软件（包括服务端及客户端）仅为本地化的多媒体播放和流管理外壳工具。开发者**不提供、不集成、不托管、不分发**任何直播源、M3U 订阅、网络链接或音视频内容。
+2. **内容合规义务**：用户导入的所有直播源、节目单等内容均由用户手动导入并对其合法性负责。开发者不对用户导入内容的版权合规性、合法性承担任何审查义务，亦不承担任何连带法律责任。
+3. **自愿捐赠性质**：本软件核心功能免费。任何形式的捐赠行为均为支持项目发展的无偿自愿赞助，不代表功能或服务的购买对价，捐赠款项一经支付概不退还。
+4. **按“现状”提供**：本软件“按原样”提供，开发者不保证其无任何缺陷或兼容性问题，亦不对因使用本软件造成的任何直接或间接损害承担赔偿责任。
+
+更多详细条款，请阅读完整的[《用户使用协议及免责声明》](DISCLAIMER.md)。
 
 ---
 
@@ -342,3 +350,11 @@ The client is fully compatible with both **TV remote controls** (key navigation)
 
 ### LICENSE
 Please comply with the [LICENSE](LICENSE). Commercial use is strictly prohibited.
+
+### Disclaimer & Legal Compliance
+1. **Neutral Media Tool**: This Software (including server and client) is strictly a media playback shell and streaming management tool. The developer **does not provide, pre-configure, host, or distribute** any live stream URLs, M3U playlists, or media content.
+2. **Content Legality**: Users are solely responsible for obtaining and verifying the legality and copyright compliance of any media sources they import. The developer assumes no liability for any copyright infringement or legal issues arising from user-imported content.
+3. **Voluntary Donations**: The core features of this Software are free. Donations are purely voluntary contributions to support the project's development and do not constitute a purchase of features or services. Donations are non-refundable.
+4. **Provided "AS-IS"**: The Software is provided "AS-IS" without warranties of any kind. The developer shall not be liable for any direct or indirect damages resulting from the use or inability to use the Software.
+
+For more details, please read the complete [User Agreement & Disclaimer](DISCLAIMER_EN.md).
