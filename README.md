@@ -92,8 +92,6 @@ docker run -d \
 ```
 *(部署完成后，即可通过浏览器访问 Web 管理后台，上传您的 M3U 文件并管理设备。)*
 
-> **🔧 自定义密钥**：如需自定义授权加密密钥，编译时设置环境变量 `LICENSE_SECRET=你的密钥种子`。服务端和 `license-gen.exe` 须使用相同的密钥种子。
-
 ##### 方法二：[飞牛OS应用](https://github.com/kuai410022283/fnos-mediaplayer)
 - 安装时请注意：安装程序目录权限，需要可读写
 下载获取mediaplayer.fpk最新服务端，按照说明进行安装
@@ -263,7 +261,6 @@ docker run -d \
 ```
 *(After deployment, visit `http://<NAS_IP>:9527` in your browser to access the web panel and upload your M3U files.)*
 
-> **🔧 Custom License Secret**: To customize the licensing key seed, set the environment variable `LICENSE_SECRET=YourSecretSeed` before compiling. The server and `license-gen.exe` must share the same seed.
 
 ##### Method 2: [fnOS App](https://github.com/Brian099/fn_fpk_packages/blob/main/README.md)
 Download the latest `mediaplayer.fpk` file and follow instructions.
