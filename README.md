@@ -1,7 +1,5 @@
-<div align="center">
-  <img src="images/icon.svg" width="120" alt="MediaPlayer Logo" />
-  <h1>MediaPlayer 智能电视流媒体中心</h1>
-  <p><b>专为 Android TV 与机顶盒打造的专业级 IPTV 私有化流媒体系统 / Enterprise-grade private IPTV streaming system for Android TV</b></p>
+  <h1>MediaPlayer 媒体播放器</h1>
+  <p><b>专为 Android TV 与机顶盒打造的本地多媒体播放与列表管理工具 / Local multimedia playback and playlist management tool for Android TV</b></p>
   <p><a href="#中文">中文</a> | <a href="#english">English</a></p>
 </div>
 
@@ -10,11 +8,14 @@
 <a name="中文"></a>
 ## 🇨🇳 中文说明
 
+> [!IMPORTANT]
+> **安全与合规提示：** 本软件是一个纯粹的本地媒体列表管理与播放工具，**不提供、不预装、不托管且不分发任何音视频内容或订阅源（如直播源、M3U列表、EPG等）**。用户须自行寻找并导入播放内容，并对所导入源的合法性与版权合规性负全部责任。请勿利用本软件播放任何侵权或违法的媒体流。
+
 ### 🌟 核心理念
 
-MediaPlayer 并不是一个普通的本地播放器，而是一套**「服务端管控 + 客户端沉浸播放」**的完整私有化流媒体解决方案。
+MediaPlayer 是一款专为个人和家庭用户设计的**「私有部署播放管理外壳 + 客户端本地播放」**的多媒体工具。
 
-它致力于帮助您将海量、杂乱的 M3U 直播源和 EPG 电子节目单，转化为如同“有线电视”一般顺滑、有组织的观影体验。经过数个版本的迭代与进化，MediaPlayer 现已具备强悍的流媒体代理、实时会话管控、无感健康检查及客户端 OTA 自动升级等高级企业级特性，让您的独家直播源从此告别被盗链、被抓包的风险，同时极大降低运维成本。
+它致力于帮助您管理个人收集的 M3U 播放列表和 EPG 电子节目单，提供简洁、有组织的本地播放体验。本软件为纯粹的技术工具，支持本地局域网设备的安全绑定、配置同步、自定义播放源健康检测及客户端 OTA 本地升级，帮助用户在私有网络环境下安全、便捷地管理与解析个人多媒体内容。
 
 ---
 
@@ -30,55 +31,51 @@ MediaPlayer 并不是一个普通的本地播放器，而是一套**「服务端
 
 ### ✨ 核心产品特色
 
-#### 🛡️ 1. 极致的安全防御与流管理
-- **源站隐身 (Proxy Mode)**：客户端不再直接向真实的直播源发起请求，所有的 M3U 订阅、EPG 获取和视频流拉取均由服务端代理转发，真实源地址完全隐身。
-- **流媒体多路复用 (Multiplexing)**：支持代理流复用技术。当多个家庭成员 or 设备同时观看同一频道时，服务端只向真实源站拉取一路视频流，极大节省您的网络下行与上行带宽。
-- **直连与代理随心切换**：支持频道和分组级别的“直连/代理”模式配置，兼顾播放速度与源站安全。
-- **动态 Token 鉴权**：客户端通过加密协议及动态生成的 Token 进行二次拉流，实现全方位的防盗链与防抓包保护，彻底告别直播源被恶意窃取。
+#### 🛡️ 1. 局域网播放与本地流处理
+- **本地连接转发**：支持在用户私有局域网内进行本地流的解析与分发，避免客户端直接暴露外网连接请求，保护个人网络隐私。
+- **本地流复用**：当家庭内多台设备播放同一本地媒体流时，支持在私有服务器端进行复用分发，节省家庭宽带资源。
+- **组播流与 RTP 优化**：内置高效的组播（UDP/RTP）流接收模块，支持抖动缓冲区（Jitter Buffer）、前向纠错（FEC）与快速换台（FCC），并具备 TS 连续性计数修复（TsCCFixer）功能，有效减少网络抖动引起的马赛克与卡顿。
+- **安全验证**：客户端与私有服务端之间采用安全的本地验证机制，防止个人播放列表被局域网内其他未授权设备读取。
 
-#### 👥 2. 强大的多端设备与会话管控
-- **一键准入机制**：新设备首次下载安装客户端后无法直接播放，需要服务端管理后台的“一键授权”，防止陌生设备蹭网。
-- **活跃流实时监控**：在后台管理面板中，实时监控所有在线播放的客户端会话。支持查看设备的 IP、实时下载网速（KB/s）、播放的频道及历史活跃时间。
-- **一键“踢下线”**：一旦发现异常占用或超时，可随时在后台一键“强制熔断”指定设备的流传输，精准切断播放。
-- **全方位审计日志**：详细记录所有客户端的心跳、登录、播放动作及错误日志，随时掌控设备运行状态。
+#### 👥 2. 个人设备安全管理
+- **设备绑定机制**：新客户端设备首次接入时需在私有管理后台进行确认绑定，确保仅限用户本人及家人设备使用。
+- **本地连接状态监控**：可在后台面板查看当前绑定的家庭设备连接状态、网速和连接历史。
+- **连接断开管理**：可随时手动断开指定家庭设备的本地连接，保障局域网安全。
+- **运行日志记录**：记录客户端的运行心跳和基本调试日志，便于用户排查局域网连接故障。
 
 #### 📺 3. 大屏沉浸式体验
 - **原生 TV 界面**：专为 Android TV（智能电视、网络机顶盒）大屏设计的原生客户端界面，操作丝滑流畅，支持多格式硬件解码。
 - **完全适老化操作**：深度适配电视遥控器和全键盘操作，老人小孩无需学习即可通过方向键 and 确认键完成频道切换、菜单呼出等操作。
 - **毫秒级换台**：内置深度优化的底层播放内核（基于 ExoPlayer / VLC），在弱网环境下依然能做到秒开换台。
 
-#### 📂 4. 自动化源站运维与管理
-- **无缝解析 M3U**：完美兼容各种复杂格式的 M3U/M3U8 直播源文件。
-- **无感健康检查**：内置频道健康检查机制，支持在后台平滑扫描失效源，自动剔除或标注不可用频道，完全不影响正在播放的用户。
-- **灵活的频道分组**：支持在服务端灵活拖拽排序、批量调整频道分类，让再杂乱无章的电视源都能变得井井有条。
+#### 📂 4. 自动化播放列表维护与管理
+- **无缝解析 M3U**：完美兼容各种复杂格式的 M3U/M3U8 列表文件。
+- **无感健康检查**：内置频道健康检查机制，支持在后台平滑扫描失效连接，自动剔除或标注不可用频道，完全不影响正在播放的用户。
+- **灵活的频道分组**：支持在服务端灵活拖拽排序、批量调整频道分类，让再杂乱无章的播放源都能变得井井有条。
 - **EPG 自动同步**：自动同步并缓存 EPG（电子节目单），让观众随时知道“正在播放什么”和“接下来播放什么”。
 
 #### 🔄 5. 无忧的自动版本升级 (OTA)
 - **服务端一键拉取**：管理后台深度集成了 GitHub Releases，可自动检测最新版本，并一键下载最新版 APK 到服务端。
 - **客户端平滑升级**：电视端每次启动时自动与服务端校验版本。当有新版时，直接从私有服务端高速下载更新并弹出安装提示，从此告别 U盘繁琐拷贝升级。
 
-#### 🔐 6. 捐赠功能
-- **硬件指纹绑定**：授权码与服务器硬件唯一绑定，防止未授权部署。
-- **远程激活**：在管理后台「全局设置 → 捐赠解锁」中输入授权码即可激活，激活后解锁远程配置等高级功能。
-- **自动续期检测**：服务端启动时自动校验授权状态，过期或机器码不匹配时自动失效。
+#### 🎁 6. 捐赠回赠与感谢机制
+- **自愿捐赠感谢**：为感谢用户的自愿捐赠支持，系统提供特定回赠功能的解锁，回赠功能按现有状况提供，非商业购买对价。
+- **回赠功能绑定**：回赠解锁码与用户的私有服务器进行关联，用于开启进阶的远程配置功能。
 
-#### ⚙️ 7. 远程配置 [捐赠]
-- **全局配置下发**：在管理后台「全局设置」中统一配置所有客户端의 播放器参数（解码模式、画面比例、缓存策略、DNS 策略等）。
-- **设备级配置覆盖**：支持对单个设备进行独立配置，覆盖全局设置。
-- **界面管控**：支持远程隐藏客户端面板（设置栏、频道列表、EPG 节目单、OSD 信息栏），隐藏后客户端操作时提示"管理员已禁用此功能"。
-- **配置项隐藏**：支持将特定设置项在客户端 UI 中隐藏，防止用户自行修改关键参数。
+#### ⚙️ 7. 远程配置 [捐赠回赠]
+- **全局配置同步**：在管理后台统一同步所有已绑定客户端的播放器参数（解码模式、画面比例、缓存策略等）。
+- **设备级配置覆盖**：支持对单个家庭设备进行独立播放参数覆盖。
+- **界面管理**：支持远程调整客户端界面面板（设置栏、播放列表等）的显示与隐藏，便于家庭统一管理。
 
-#### 8. 客户端定制 [捐赠] 
-- **自定义修改应用名称**：支持在客户端设置中自定义应用名称，方便识别和管理。
-- **自定义修改应用图标**：支持在客户端设置中自定义应用图标，提升用户体验。
-- **自定义修改服务端地址**：支持在客户端设置中自定义服务端地址，方便在不同网络环境下使用。
-- **自定义修改包名称**：支持在客户端设置中自定义应用包名称，方便在不同设备上识别。
+#### 🛠️ 8. 客户端定制与自动打包 [捐赠回赠]
+- **服务端一键自动打包**：管理后台集成自动打包与签名引擎，支持一键完成定制化客户端构建。
+- **个性化应用信息配置**：支持自定义客户端的 应用名称、应用图标、应用包名 及默认服务端连接地址，生成用户专属的安装包。
 
 ---
 
 ### 🚀 部署与使用
 
-> 本项目分为**服务端（Backend）**和**客户端（Android App）**两部分。服务端提供核心的流代理、设备管控与后台面板，客户端则安装在电视或机顶盒上提供播放界面。
+> 本项目分为**服务端（Backend）**和**客户端（Android App）**两部分。服务端提供本地流解析转发、设备绑定管理与后台面板，客户端则安装在电视或机顶盒上提供播放界面。
 
 #### 1. 服务端部署
 ##### 方法一：Docker
@@ -86,11 +83,12 @@ MediaPlayer 并不是一个普通的本地播放器，而是一套**「服务端
 ```bash
 docker run -d \
   -p 9527:9527 \
-  -v /path/to/your/data:/app/data \
+  -v /path/to/your/mediaplayer:/app/data \
   --name mediaplayer-server \
-  ghcr.io/kuai410022283/mediaplayer:latest
+  laoknas/mediaplayer:latest
 ```
 *(部署完成后，即可通过浏览器访问 Web 管理后台，上传您的 M3U 文件并管理设备。)*
+*请确保映射的目录`/path/to/your/mediaplayer`有足够的读写权限,否则无法创建文件、修改文件、无法创建客户端安装包*
 
 ##### 方法二：[飞牛OS应用](https://github.com/kuai410022283/fnos-mediaplayer)
 - 安装时请注意：安装程序目录权限，需要可读写
@@ -142,7 +140,7 @@ sudo chmod 0755 mediaplayer
 
 请前往本仓库的 **[Releases 页面](https://github.com/kuai410022283/mediaplayer/releases)** 下载最新版本的 `mediaplayer-x.x.x-release.apk`。
 - 将 APK 放入 U盘插入电视进行安装，或者通过当贝市场等第三方工具推送到电视端。
-- 打开 App 后，系统会自动生成设备唯一识别码，将其提供给服务端管理员进行授权即可开启观影之旅。
+- 打开 App 后，系统会自动生成设备唯一识别码，将其提供给服务端管理员进行授权绑定即可开始使用播放器。
 
 ---
 
@@ -195,36 +193,40 @@ sudo chmod 0755 mediaplayer
 <a name="english"></a>
 ## 🇺🇸 English Guide
 
+> [!IMPORTANT]
+> **Compliance Notice:** This software is strictly a local playlist manager and playback tool. **It does not provide, pre-configure, host, or distribute any media streams, M3U playlists, or EPG guides.** Users must supply their own media sources and are fully responsible for ensuring the legality and copyright compliance of the imported content. Do not use this tool to stream unauthorized or infringing materials.
+
 ### 🌟 Core Concept
 
-MediaPlayer is not just a simple local media player, but a comprehensive **"Server-side Control + Client-side Immersive Playback"** private streaming solution.
+MediaPlayer is a **"Private Deployment Backend + Client Playback Shell"** multimedia tool designed for personal and family use.
 
-It is designed to help you transform massive, disorganized M3U playlists and EPG (Electronic Program Guides) into a smooth, structured, "cable-TV-like" viewing experience. Through multiple version iterations, MediaPlayer now features powerful media proxying, real-time session monitoring, non-intrusive stream health checking, and client-side OTA automatic updates. It ensures your exclusive live streams are safe from hotlinking or packet capturing, while significantly reducing maintenance costs.
+It helps you manage your self-collected M3U playlists and EPG (Electronic Program Guides) to create a clean, organized local playback experience. As a pure technical tool, MediaPlayer supports secure local device binding, configuration synchronization, stream availability checks, and OTA updates, helping users manage and parse their own media streams safely within a private network environment.
 
 ---
 
 ### ✨ Core Features
 
-#### 🛡️ 1. Ultimate Security & Stream Management
-- **Source Obfuscation (Proxy Mode)**: The client never directly requests the stream sources. M3U subscriptions, EPG data, and video streams are all proxied by the server, hiding the original source URLs entirely.
-- **Stream Multiplexing**: When multiple family members or devices watch the same channel, the server pulls only one video stream from the source, saving downstream and upstream bandwidth.
-- **Direct/Proxy Toggle**: Configure "Direct Connection" or "Proxy" mode at the channel or group level to balance playback speed and source safety.
-- **Dynamic Token Authentication**: The client pulls streams using encrypted protocols and dynamically generated tokens, preventing hotlinking and stream stealing.
+#### 🛡️ 1. LAN Playback & Local Stream Handling
+- **Local Stream Forwarding**: Supports stream parsing and forwarding within the user's private local network to protect personal network privacy.
+- **Local Stream Multiplexing**: Relay and share a single stream among multiple family devices locally, saving home bandwidth.
+- **Multicast & RTP Optimization**: Built-in high-performance multicast (UDP/RTP) stream reader, supporting Jitter Buffer, Forward Error Correction (FEC), Fast Channel Change (FCC), and TS Continuity Counter Fixer (TsCCFixer) to minimize stuttering and pixelation.
+- **P2P & RTMP Protocol Forwarding**: Provides streaming translation and forwarding support for protocols like P2P and RTMP to broaden playlist compatibility.
+- **Local Verification**: Uses secure verification between the client and the private server to prevent unauthorized local devices from accessing your playlists.
 
-#### 👥 2. Multi-Device & Session Management
-- **One-Click Approval**: Newly installed clients cannot stream until approved by the administrator in the backend panel, preventing unauthorized access.
-- **Real-Time Active Streams**: Monitor all online streaming sessions in the backend. View device IP, real-time speed (KB/s), playing channel, and active duration.
-- **One-Click Disconnection**: Terminate any device stream instantly if abuse or timeout is detected.
-- **Audit Logs**: Comprehensive logs track client heartbeats, logins, playback actions, and errors.
+#### 👥 2. Personal Device Management
+- **Device Binding**: Newly installed client devices must be confirmed and bound in the private admin backend before use, ensuring access is limited to family members.
+- **Connection Status Monitoring**: Check current family device connection status, speed, and history in the admin panel.
+- **Manual Disconnection**: Easily disconnect any bound device manually to secure the local network.
+- **Basic Run Logs**: Simple logging for client heartbeats and debugging to help troubleshoot LAN connection issues.
 
 #### 📺 3. Immersive TV Experience
 - **Native Android TV UI**: Designed specifically for TV screens and set-top boxes, providing smooth navigation and multi-format hardware decoding.
 - **Elderly-Friendly Controls**: Fully adapted for remote controls. Users can navigate channels and menus using just the arrow keys and OK buttons.
 - **Millisecond Channel Switching**: Optimized playback engines (based on ExoPlayer / VLC) enable instant switching even in unstable networks.
 
-#### 📂 4. Automated Stream Source Maintenance
+#### 📂 4. Automated Playlist Maintenance & Management
 - **Seamless M3U Parsing**: High compatibility with various complex M3U/M3U8 playlist formats.
-- **Non-Intrusive Health Check**: Automatically scans and detects invalid streams in the background without affecting current viewers.
+- **Non-Intrusive Health Check**: Automatically scans and detects invalid stream links in the background without affecting current viewers.
 - **Flexible Channel Grouping**: Drag-and-drop to reorder and categorize channels in bulk.
 - **EPG Synchronization**: Automatically syncs and caches electronic program guides, displaying what is currently playing and what is next.
 
@@ -232,22 +234,24 @@ It is designed to help you transform massive, disorganized M3U playlists and EPG
 - **One-Click Server Pull**: The backend integrates GitHub Releases to check for updates and download the latest client APK with one click.
 - **Seamless Client Updates**: The TV client checks version state on boot, downloading updates directly from the private server.
 
-#### 🔐 6. VIP Subscription License
-- **Hardware Fingerprint Binding**: Licenses are bound to the server's unique machine ID to prevent unauthorized deployment.
-- **Offline Key Generation**: Includes `license-gen.exe` to generate activation keys using machine IDs and expiration dates.
-- **One-Click Activation**: Input key under Global Settings -> VIP Subscription to unlock premium features such as Remote Configuration.
+#### 🎁 6. Donation Rewards
+- **Voluntary Support**: Donation is completely voluntary to support development and maintenance. Selected thank-you features are offered as single-sided rewards.
+- **Reward Binding**: Unlock codes are linked to the private server instances to enable advanced configuration sharing.
 
-#### ⚙️ 7. Remote Configuration Management
-- **Global Config Deployment**: Deploy player parameters (decoder mode, scale, cache, DNS strategy) to all clients at once.
-- **Device-Level Override**: Override global configs for specific devices.
-- **UI Control**: Hide specific client panels (Settings, Channel List, EPG, OSD) to lock down TV controls.
-- **Hide Settings**: Keep critical configuration settings invisible in the client UI.
+#### ⚙️ 7. Remote Configuration [Donation Reward]
+- **Global Config Sync**: Synchronize playback parameters (decoder mode, scale, cache) across all bound clients easily.
+- **Device-Level Override**: Adjust and override configs for individual family devices.
+- **UI Control**: Show/hide client panels or menu items for clean, simplified family TV navigation.
+
+#### 🛠️ 8. Client Customization & Auto Packaging [Donation Reward]
+- **One-Click Server Packaging**: Built-in automatic packaging and signing engine in the admin backend, supporting one-click customized client builds.
+- **Personalized App Information**: Customize the client's App Name, App Icon, Package Name, and default server connection address to generate your own exclusive installation package.
 
 ---
 
 ### 🚀 Deployment & Usage
 
-> The project consists of two parts: the **Server (Backend)** and the **Client (Android App)**. The server handles stream proxying and device control, while the client provides the playback interface.
+> The project consists of two parts: the **Server (Backend)** and the **Client (Android App)**. The server handles local stream forwarding and device management, while the client provides the playback interface.
 
 #### 1. Server Deployment
 ##### Method 1: Docker
@@ -255,12 +259,12 @@ Deploy in seconds on any Linux or NAS environment with a single command:
 ```bash
 docker run -d \
   -p 9527:9527 \
-  -v /path/to/your/data:/app/data \
+  -v /path/to/your/mediaplayer:/app/data \
   --name mediaplayer-server \
-  ghcr.io/kuai410022283/mediaplayer:latest
+  laoknas/mediaplayer:latest
 ```
 *(After deployment, visit `http://<NAS_IP>:9527` in your browser to access the web panel and upload your M3U files.)*
-
+*Please ensure the mapped directory `/path/to/your/mediaplayer` has sufficient read/write permissions, otherwise, files cannot be created, modified, or the client installation package cannot be generated.*
 
 ##### Method 2: [fnOS App](https://github.com/Brian099/fn_fpk_packages/blob/main/README.md)
 Download the latest `mediaplayer.fpk` file and follow instructions.
@@ -308,7 +312,7 @@ Download binaries from the [Releases Page](https://github.com/kuai410022283/medi
 
 Go to the **[Releases Page](https://github.com/kuai410022283/mediaplayer/releases)** and download `mediaplayer-x.x.x-release.apk`.
 - Copy it to a USB drive and plug it into your TV, or push it via third-party TV market tools.
-- Once opened, the client will display a unique Device ID. Give this ID to the administrator for approval to start viewing.
+- Once opened, the client will display a unique Device ID. Give this ID to the administrator for approval to start using the player.
 
 ---
 
